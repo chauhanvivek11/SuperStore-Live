@@ -8,7 +8,8 @@ builder.Services.AddSingleton<CartService>();
 builder.Services.AddSingleton<ShopBackend.Services.OrderService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddOpenApi(); // Ya AddSwaggerGen agar purana version hai
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(); // Ya AddSwaggerGen agar purana version hai
 
 // 2. CORS allow karein (Taaki Angular 4200 port se connect ho sake)
 builder.Services.AddCors(options =>
@@ -24,7 +25,8 @@ var app = builder.Build();
 // 3. Pipeline Setup
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi(); // Ya app.UseSwagger(); app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
