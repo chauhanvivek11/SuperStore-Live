@@ -1,0 +1,27 @@
+<nav class="glass-header">
+  <div class="container">
+    
+    <a routerLink="/" class="logo">
+      🛍️ Super<span class="highlight">Store</span>
+    </a>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/my-orders" routerLinkActive="active-link">My Orders</a>
+    </div>
+
+    <div class="nav-actions">
+      
+      <a routerLink="/cart" class="icon-btn" routerLinkActive="active-icon">
+        <i class="cart-icon">🛒</i>
+        <span *ngIf="cartCount > 0" class="badge">{{ cartCount }}</span>
+      </a>
+
+      <button (click)="logout()" class="logout-btn">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+</nav>

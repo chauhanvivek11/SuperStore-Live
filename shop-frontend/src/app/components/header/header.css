@@ -1,0 +1,116 @@
+/* 1. Glass Header Container */
+.glass-header {
+    background: rgba(255, 255, 255, 0.95); /* Thoda transparent white */
+    backdrop-filter: blur(10px); /* Blur effect (Modern) */
+    position: sticky; /* Chipka rahega top par */
+    top: 0;
+    z-index: 1000; /* Baaki content ke upar rahega */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Soft Shadow */
+    padding: 15px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 2. Logo Styling */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.highlight {
+    color: #667eea; /* Wahi purple jo banner mein hai */
+}
+
+/* 3. Navigation Links (Pill Shape) */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    background: #f4f6f8;
+    padding: 5px;
+    border-radius: 30px; /* Golaakar background */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #000;
+    background: rgba(0,0,0,0.05);
+}
+
+/* Active Link (Jab user us page par ho) */
+.active-link {
+    background: white !important;
+    color: #667eea !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-weight: 600 !important;
+}
+
+/* 4. Action Buttons */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    position: relative;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: #ff4757;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 2px solid #ff4757;
+    color: #ff4757;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+    background: #ff4757;
+    color: white;
+}

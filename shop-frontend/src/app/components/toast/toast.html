@@ -1,0 +1,8 @@
+<div class="toast-box" 
+     [class.show]="toastData.show" 
+     [class.error]="toastData.type === 'error'">
+  
+  <span>{{ toastData.msg }}</span>
+  <button (click)="close()">✖</button>
+
+</div>

@@ -1,0 +1,125 @@
+/* 1. Footer Container */
+.modern-footer {
+    background-color: #1e293b; /* Premium Dark Slate Color */
+    color: #cbd5e1; /* Soft White Text (Not harsh white) */
+    padding: 60px 0 20px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px; /* Thoda gap content se */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto Responsive */
+    gap: 40px;
+}
+
+/* 2. Columns Styling */
+.footer-col h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Title ke neeche choti si line */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 3px;
+    background: #667eea; /* Theme Blue color */
+    border-radius: 2px;
+}
+
+/* 3. Brand Styling */
+.footer-logo {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.highlight {
+    color: #667eea;
+}
+.footer-desc {
+    line-height: 1.6;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 4. Links Styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #667eea; /* Hover par Blue */
+    transform: translateX(5px); /* Slide effect */
+}
+
+/* 5. Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-btn {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    background: #667eea;
+    transform: translateY(-3px);
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* 6. Bottom Bar */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}

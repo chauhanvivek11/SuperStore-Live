@@ -1,0 +1,60 @@
+<div class="orders-container">
+   <div class="header-area">
+    <h2 class="page-title">📦 My Orders</h2>
+    <button (click)="refresh()" class="btn-refresh">
+        🔄 Refresh Status
+    </button>
+</div>
+    <ng-container *ngIf="orders$ | async as orders; else loading">
+        
+        <div *ngIf="orders === null || orders.length === 0" class="text-center mt-5">
+            <p>No orders found yet.</p>
+            <a routerLink="/" style="color: blue; cursor: pointer;">Go Shopping</a>
+        </div>
+
+        <div class="order-card" *ngFor="let order of orders">
+            
+            <div class="card-header-custom">
+                <span><strong>Order ID:</strong> #{{ order.id | slice:18:24 }}</span>
+                <span class="order-date">{{ order.orderDate | date:'medium' }}</span>
+            </div>
+
+            <div class="card-body-custom">
+                <div class="items-list">
+                    <div *ngFor="let item of order.items" class="single-item">
+                        <img [src]="item.image" alt="prod" class="item-thumb">
+                        <div class="item-details">
+                            <h5>{{ item.title }}</h5>
+                            <p class="text-muted">Qty: {{ item.quantity || 1 }}</p>
+                        </div>
+                        <span class="item-price">₹{{ item.price }}</span>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="order-footer">
+                    <div class="total-section">
+                        <span class="label">Total Amount:</span>
+                        <span class="amount">₹{{ order.totalAmount }}</span>
+                    </div>
+
+                    <div [ngClass]="{
+                        'status-badge': true,
+                        'status-pending': order.status === 'Pending',
+                        'status-delivered': order.status === 'Delivered'
+                    }">
+                        {{ order.status }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #loading>
+        <div class="text-center mt-5">
+            <p>Loading your orders... ⏳</p>
+        </div>
+    </ng-template>
+
+</div>

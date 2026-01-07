@@ -1,0 +1,307 @@
+/* 1. Main Layout */
+.shop-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 2. Hero Slider (Modern & Sleek) */
+.hero-slider {
+    position: relative;
+    height: 400px; /* Fixed height */
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.hero-slider img {
+    position: relative;
+    height: 400px; /* Height fix rakhna zaroori hai taaki slider uupar-neeche na ho */
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    background-color: #f4f4f4; /* Jab tak image load na ho, ye color dikhe */
+}
+
+.slide {
+   position: absolute; /* Ek ke upar ek chadha do */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Shuru mein gayab raho */
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+
+    /* 🔥 ASLI JAADU: Ye line smooth banayegi (1 second ka fade) 🔥 */
+    transition: opacity 1s ease-in-out, visibility 1s;
+}
+
+.slide.active {
+   /* Dheere se saamne aao */
+    opacity: 1;
+    visibility: visible;
+    z-index: 2; /* Sabse upar raho */
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay taaki text dikhe */
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%; left: 60px;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 500px;
+    z-index: 2;
+}
+
+.badge {
+    background: #ff4757;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.slide-content h1 {
+    font-size: 3rem;
+    margin: 15px 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.cta-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+    background: #f8f9fa;
+}
+
+/* Dots */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.dot {
+    width: 12px; height: 12px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.active-dot {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* 3. Toolbar (Search & Title) */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.count-badge {
+    background: #eef2ff;
+    color: #667eea;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.search-box {
+    position: relative;
+    width: 350px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-style: normal;
+    opacity: 0.6;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+}
+
+/* 4. Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+/* Modern Card */
+.product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Card Hawa mein uthega */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    border-color: transparent;
+}
+
+.card-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.card-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.08); /* Zoom effect */
+}
+
+.card-details h3 {
+    font-size: 1rem;
+    margin: 0 0 10px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.card-details h3:hover {
+    color: #667eea;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #2d3436;
+}
+
+.rating {
+    font-size: 0.8rem;
+}
+
+.btn-cart {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-cart:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 15px rgba(118, 75, 162, 0.4);
+}
+
+/* Empty State */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: #888;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,18 @@
+# Visual Studio & VS Code files
+.vs/
+*.user
+*.suo
+.vscode/
+
+# Build folders (Kachra files)
+bin/
+obj/
+out/
+
+# Node Modules (Bohot bhari hote hain)
+node_modules/
+dist/
+.angular/
+
+# Environment secrets
+.env

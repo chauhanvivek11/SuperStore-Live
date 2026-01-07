@@ -1,0 +1,162 @@
+/* 1. Main Container */
+.orders-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Header Area (Title + Button) */
+.header-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Refresh Button Styling */
+.btn-refresh {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-refresh:hover {
+    background-color: #f8f9fa;
+    border-color: #bbb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 3. Order Card Styling (The Box) */
+.order-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0; /* Halka grey border */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Soft Shadow */
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.order-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Hover par shadow badhegi */
+}
+
+/* 4. Card Header (Date & ID) */
+.card-header-custom {
+    background: #f8f9fa; /* Light Grey Background */
+    padding: 15px 25px;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 5. Card Body & Items */
+.card-body-custom {
+    padding: 25px;
+}
+
+.items-list {
+    margin-bottom: 20px;
+}
+
+.single-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee; /* Items ke beech dotted line */
+}
+
+.single-item:last-child {
+    border-bottom: none;
+}
+
+.item-thumb {
+    width: 80px;  /* Image thodi badi kari */
+    height: 80px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 5px;
+    margin-right: 20px;
+    background: #fff;
+}
+
+.item-details h5 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.item-price {
+    margin-left: auto;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* 6. Footer (Total & Status) */
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid #f1f1f1;
+}
+
+.total-section .label {
+    font-size: 1rem;
+    color: #555;
+    margin-right: 10px;
+}
+
+.total-section .amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #27ae60; /* Green Color for Money */
+}
+
+/* Status Badge */
+.status-badge {
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Colors for Status */
+.status-pending { 
+    background-color: #fff8e1; 
+    color: #f39c12; 
+    border: 1px solid #ffe082;
+}
+
+.status-delivered { 
+    background-color: #e8f5e9; 
+    color: #2ecc71; 
+    border: 1px solid #a5d6a7;
+}

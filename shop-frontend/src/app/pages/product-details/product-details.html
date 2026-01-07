@@ -1,0 +1,42 @@
+<div class="container">
+  
+  <a routerLink="/" class="back-btn">
+    ← Back to Shop
+  </a>
+
+  <div *ngIf="loading" class="loading-state">
+    <h2>Loading Product... ⏳</h2>
+  </div>
+
+  <div *ngIf="!loading && product" class="product-wrapper">
+    
+    <div class="image-section">
+      <img [src]="product.image" [alt]="product.title">
+    </div>
+
+    <div class="details-section">
+      
+      <span class="category-badge">{{ product.category | uppercase }}</span>
+      
+      <h1 class="product-title">{{ product.title }}</h1>
+      
+      <div class="rating-box">
+        <span class="stars">⭐ {{ product.rating?.rate }}</span>
+        <span class="reviews">({{ product.rating?.count }} reviews)</span>
+      </div>
+
+      <p class="product-price">${{ product.price }}</p>
+
+      <p class="product-description">{{ product.description }}</p>
+
+      <div class="action-buttons">
+        <button (click)="addToCart()" class="add-cart-btn">
+          Add to Cart 🛒
+        </button>
+        <button (click)="buyNow()" class="buy-now-btn">Buy Now</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>

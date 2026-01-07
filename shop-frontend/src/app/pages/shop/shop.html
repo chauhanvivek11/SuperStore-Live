@@ -1,0 +1,81 @@
+<div class="shop-container">
+
+  <div class="hero-slider">
+    
+    <div class="slide" 
+         *ngFor="let banner of banners; let i = index" 
+         [class.active]="i === currentSlide">
+      
+      <div class="image-wrapper">
+        <img [src]="banner.img" alt="Banner">
+        <div class="overlay"></div> </div>
+      
+      <div class="slide-content">
+        <span class="badge">New Arrival</span>
+        <h1>{{ banner.title }}</h1>
+        <p>{{ banner.text }}</p>
+        <button class="cta-btn">Shop Collection ➜</button>
+      </div>
+    </div>
+
+    <div class="dots-container">
+      <span *ngFor="let banner of banners; let i = index" 
+            class="dot"
+            [class.active-dot]="i === currentSlide"
+            (click)="currentSlide = i">
+      </span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="section-title">
+      <h2>🔥 Trending Products</h2>
+      <span class="count-badge">{{ filteredProducts.length }} Items</span>
+    </div>
+
+    <div class="search-box">
+      <i class="search-icon">🔍</i>
+      <input type="text" 
+             placeholder="Search for clothes, tech..." 
+             (input)="onSearch($event)">
+    </div>
+  </div>
+
+  <div class="product-grid">
+    
+    @for (item of filteredProducts; track item.id) {
+      <div class="product-card">
+        
+        <div class="card-image">
+           <img [src]="item.image" [alt]="item.title">
+           <div class="card-actions">
+              <button class="quick-view">👁️</button>
+           </div>
+        </div>
+
+        <div class="card-details">
+          <h3 [routerLink]="['/product', item.id]" [title]="item.title">
+            {{ item.title }}
+          </h3>
+          
+          <div class="price-row">
+             <span class="price">${{ item.price }}</span>
+             <div class="rating">⭐⭐⭐⭐</div>
+          </div>
+
+          <button (click)="addItemToCart(item)" class="btn-cart">
+            Add to Cart 🛒
+          </button>
+        </div>
+
+      </div>
+    } @empty {
+      <div class="no-results">
+        <div class="empty-icon">🕵️‍♂️</div>
+        <p>No products found!</p>
+      <button class="reset-btn" (click)="loadProducts(); searchKey=''">View All Products</button>
+      </div>
+    }
+
+  </div>
+</div>

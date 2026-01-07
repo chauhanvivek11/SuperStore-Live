@@ -1,0 +1,61 @@
+<div class="cart-container">
+  
+  <h1 class="page-title">Shopping Cart ({{ cartItems.length }})</h1>
+
+  <div class="cart-layout" *ngIf="cartItems.length > 0; else emptyCart">
+    
+    <div class="items-list">
+      
+      <div *ngFor="let item of cartItems" class="cart-item">
+        
+        <img [src]="item.image" alt="item" class="item-img">
+        
+        <div class="item-info">
+          <h3>{{ item.title }}</h3>
+          <p class="price">${{ item.price }}</p>
+        </div>
+
+        <button (click)="removeItem(item.productId)" class="delete-btn">
+          Remove 🗑️
+        </button>
+
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <h2>Order Summary</h2>
+      
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span>${{ totalPrice.toFixed(2) }}</span>
+      </div>
+      
+      
+      <div class="summary-row">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+
+      <hr>
+
+      <div class="total-row">
+        <span>Total</span>
+        <span>${{ totalPrice.toFixed(2) }}</span>
+      </div>
+
+    <button (click)="checkout()" class="checkout-btn">
+  Proceed to Checkout
+</button>
+
+</div>
+
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-state">
+      <h2>Your cart is empty! 😢</h2>
+      <p>Looks like you haven't added anything yet.</p>
+    </div>
+  </ng-template>
+
+</div>
